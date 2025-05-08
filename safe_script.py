@@ -29,7 +29,7 @@ def create_github_issue(title, body=None, labels=None):
     auth_header_b64 = auth.split()[-1]
     # To extract the token, we need to decode the header and split the token
     # access-token:GITHUB_TOKEN
-    token = base64.b64decode(auth_header).decode().split(':')[-1]
+    token = base64.b64decode(auth_header_b64).decode().split(':')[-1]
 
     # Just use the token for any actions, for example an issue creation
     url = f"https://api.github.com/repos/{repo}/issues"
