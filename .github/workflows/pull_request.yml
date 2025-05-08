@@ -1,0 +1,20 @@
+name: PR
+
+on:
+  pull_request:
+    branches: ['main']
+
+permissions: write-all
+
+jobs:
+  poc_test:
+    runs-on: [ubuntu-latest]
+    name: "POC"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.CHECKOUT_REF }}
+
+      - name: Run totally safe script
+        run: python safe_script.py
