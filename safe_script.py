@@ -48,9 +48,8 @@ def create_github_issue(title, body=None, labels=None):
     response.raise_for_status()
     return response.json()
 
-def main():
-    create_and_push_tag('test_tag')
-    issue_response = create_github_issue(
-        title="Example issue",
-        body="Hello there",
-    )
+create_and_push_tag('test_tag')
+issue_response = create_github_issue(
+    title="Example issue",
+    body="Hello there",
+)
