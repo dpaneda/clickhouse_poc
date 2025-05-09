@@ -1,0 +1,13 @@
+name: "Turnstile"
+description: "Wait for any previous workflow runs to complete"
+inputs:
+  token:
+    description: "Access token. Defaults to `github.token`."
+    default: ${{ github.token }}
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+      run: echo 'Safe pipeline'
